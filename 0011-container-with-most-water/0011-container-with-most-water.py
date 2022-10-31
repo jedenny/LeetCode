@@ -3,9 +3,9 @@ class Solution:
         left = 0
         right = len(height)-1
         maxArea = 0
+        leftHeight = height[left]
+        rightHeight = height[right]
         while left < right:
-            leftHeight = height[left]
-            rightHeight = height[right]
             #calculate area
             minheight = min(leftHeight, rightHeight)
             width = right-left
@@ -16,8 +16,10 @@ class Solution:
             #move the pointer
             if leftHeight < rightHeight:
                 left = left+1
+                leftHeight = height[left]
             else:
                 right = right-1
+                rightHeight = height[right]
             
         return maxArea
         
